@@ -1,0 +1,12 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/MulqiGaming64/EffectSee
+build-by-default: true
+branches:
+- main
+projects:
+  EffectSee:
+    path: ""
+    icon: "icons.png"
+    libs:
+      - src: Vecnavium/FormsUI/FormsUI
+        version: ^1.0.0
+...
