@@ -1,0 +1,11 @@
+name: EffectSee
+main: MulqiGaming64\EffectSee\EffectSee
+description: See Player effects on UI
+api: 4.0.0
+version: 1.0.0
+author: MulqiGaming64
+
+permissions:
+ effectsee.use:
+  default: true
+  description: Allow to see Player Effect
