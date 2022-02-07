@@ -7,5 +7,5 @@ author: MulqiGaming64
 
 permissions:
  effectsee.use:
-  default: true
+  default: op
   description: Allow to see Player Effect
