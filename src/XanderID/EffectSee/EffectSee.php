@@ -1,6 +1,6 @@
 <?php
 
-namespace MulqiGaming64\EffectSee;
+namespace XanderID\EffectSee;
 
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
@@ -12,7 +12,7 @@ use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\Effect;
 use pocketmine\entity\effect\VanillaEffects;
 
-use MulqiGaming64\EffectSee\Commands\EffectSeeCommands;
+use XanderID\EffectSee\Commands\EffectSeeCommands;
 use Vecnavium\FormsUI\SimpleForm;
 use Vecnavium\FormsUI\CustomForm;
 

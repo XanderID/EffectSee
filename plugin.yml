@@ -1,9 +1,9 @@
 name: EffectSee
-main: MulqiGaming64\EffectSee\EffectSee
+main: XanderID\EffectSee\EffectSee
 description: See Player effects on UI
 api: 4.0.0
 version: 1.0.1
-author: MulqiGaming64
+author: XanderID
 
 permissions:
  effectsee.use:

@@ -1,8 +1,8 @@
 <?php
 
-namespace MulqiGaming64\EffectSee\Commands;
+namespace XanderID\EffectSee\Commands;
 
-use MulqiGaming64\EffectSee\EffectSee;
+use XanderID\EffectSee\EffectSee;
 use pocketmine\command\Command;
 use pocketmine\player\Player;
 use pocketmine\command\CommandSender;
