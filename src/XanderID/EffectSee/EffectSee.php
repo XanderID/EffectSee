@@ -5,16 +5,14 @@ namespace XanderID\EffectSee;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\Server;
 
-use pocketmine\entity\effect\EffectManager;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\Effect;
 use pocketmine\entity\effect\VanillaEffects;
 
 use XanderID\EffectSee\Commands\EffectSeeCommands;
-use Vecnavium\FormsUI\SimpleForm;
-use Vecnavium\FormsUI\CustomForm;
+use jojoe77777\FormAPI\SimpleForm;
+use jojoe77777\FormAPI\CustomForm;
 
 class EffectSee extends PluginBase implements Listener{
     
@@ -73,97 +71,56 @@ class EffectSee extends PluginBase implements Listener{
 		return self::effectsData[$name]["image"];
 	}
 	
-	public static function getEffectByName(string $name){
-		switch($name){
-			case "absorption":
-			return VanillaEffects::ABSORPTION();
-			case "blindness":
-			return VanillaEffects::BLINDNESS();
-			case "conduit_power":
-			return VanillaEffects::CONDUIT_POWER();
-			case "poison":
-			return VanillaEffects::POISON();
-			case "fire_resistance":
-			return VanillaEffects::FIRE_RESISTANCE();
-			case "haste":
-			return VanillaEffects::HASTE();
-			case "health_boost":
-			return VanillaEffects::HEALTH_BOOST();
-			case "hunger":
-			return VanillaEffects::HUNGER();
-			case "instant_damage":
-			return VanillaEffects::INSTANT_DAMAGE();
-			case "instant_health":
-			return VanillaEffects::INSTANT_HEALTH();
-			case "invisibility":
-			return VanillaEffects::INVISIBILITY();
-			case "jump_boost":
-			return VanillaEffects::JUMP_BOOST();
-			case "levitation":
-			return VanillaEffects::LEVITATION();
-			case "mining_fatigue":
-			return VanillaEffects::MINING_FATIGUE();
-			case "nausea":
-			return VanillaEffects::NAUSEA();
-			case "night_vision":
-			return VanillaEffects::NIGHT_VISION();
-			case "regeneration":
-			return VanillaEffects::REGENERATION();
-			case "resistance":
-			return VanillaEffects::RESISTANCE();
-			case "saturation":
-			return VanillaEffects::SATURATION();
-			case "slowness":
-			return VanillaEffects::SLOWNESS();
-			case "speed":
-			return VanillaEffects::SPEED();
-			case "strength":
-			return VanillaEffects::STRENGTH();
-			case "water_breathing":
-			return VanillaEffects::WATER_BREATHING();
-			case "weakness":
-			return VanillaEffects::WEAKNESS();
-			case "wither":
-			return VanillaEffects::WITHER();
-			default:
-			return null;
-		}
+	public static function getEffectByName(string $name): Effect {
+	        return match ($name) {
+	            "absorption" => VanillaEffects::ABSORPTION(),
+	            "blindness" => VanillaEffects::BLINDNESS(),
+	            "conduit_power" => VanillaEffects::CONDUIT_POWER(),
+	            "poison" => VanillaEffects::POISON(),
+	            "fire_resistance" => VanillaEffects::FIRE_RESISTANCE(),
+	            "haste" => VanillaEffects::HASTE(),
+	            "health_boost" => VanillaEffects::HEALTH_BOOST(),
+	            "hunger" => VanillaEffects::HUNGER(),
+	            "instant_damage" => VanillaEffects::INSTANT_DAMAGE(),
+	            "instant_health" => VanillaEffects::INSTANT_HEALTH(),
+	            "invisibility" => VanillaEffects::INVISIBILITY(),
+	            "jump_boost" => VanillaEffects::JUMP_BOOST(),
+	            "levitation" => VanillaEffects::LEVITATION(),
+	            "mining_fatigue" => VanillaEffects::MINING_FATIGUE(),
+	            "nausea" => VanillaEffects::NAUSEA(),
+	            "night_vision" => VanillaEffects::NIGHT_VISION(),
+	            "regeneration" => VanillaEffects::REGENERATION(),
+	            "resistance" => VanillaEffects::RESISTANCE(),
+	            "saturation" => VanillaEffects::SATURATION(),
+	            "slowness" => VanillaEffects::SLOWNESS(),
+	            "speed" => VanillaEffects::SPEED(),
+	            "strength" => VanillaEffects::STRENGTH(),
+	            "water_breathing" => VanillaEffects::WATER_BREATHING(),
+	            "weakness" => VanillaEffects::WEAKNESS(),
+	            "wither" => VanillaEffects::WITHER(),
+	            default => null,
+	        };
 	}
 	
 	public static function translateEffectName(string $name): string {
 		$name = str_replace("potion.", "", $name);
-		switch($name){
-			case "jump":
-			return "jump_boost";
-			case "confusion":
-			return "nausea";
-			case "heal":
-			return "instant_health";
-			case "harm":
-			return "instant_damage";
-			case "conduitPower":
-			return "conduit_power";
-			case "damageBoost":
-			return "strength";
-			case "digSlowDown":
-			return "mining_fatigue";
-			case "digSpeed":
-			return "haste";
-			case "fireResistance":
-			return "fire_resistance";
-			case "healthBoost":
-			return "health_boost";
-			case "moveSlowdown":
-			return "slowness";
-			case "moveSpeed":
-			return "speed";
-			case "nightVision":
-			return "night_vision";
-			case "waterBreathing":
-			return "water_breathing";
-			default:
-			return $name;
-		}
+	        return match ($name) {
+	            "jump" => "jump_boost",
+	            "confusion" => "nausea",
+	            "heal" => "instant_health",
+	            "harm" => "instant_damage",
+	            "conduitPower" => "conduit_power",
+	            "damageBoost" => "strength",
+	            "digSlowDown" => "mining_fatigue",
+	            "digSpeed" => "haste",
+	            "fireResistance" => "fire_resistance",
+	            "healthBoost" => "health_boost",
+	            "moveSlowdown" => "slowness",
+	            "moveSpeed" => "speed",
+	            "nightVision" => "night_vision",
+	            "waterBreathing" => "water_breathing",
+	            default => $name,
+	        };
 	}
     
 	public function seeEffects(Player $sender, Player $player): bool{
